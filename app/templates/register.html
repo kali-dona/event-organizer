@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organize It! - Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+<main>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    {% block content %}
+        <form method="POST" enctype="multipart/form-data"
+              action="{{ url_for('auth.register', next=request.args.get('next')) }}" class="register">
+            {{ form.hidden_tag() }}
+            <p class="login-register-title">Register</p>
+
+            <div class="input-container">
+                {{ form.first_name.label }}
+                {{ form.first_name(class_='form-control', placeholder="Enter your first name") }}
+            </div>
+
+            <div class="input-container">
+                {{ form.last_name.label }}
+                {{ form.last_name(class_='form-control', placeholder="Enter your last name") }}
+            </div>
+
+            <div class="input-container">
+                {{ form.username.label }}
+                {{ form.username(class_='form-control', size=20, placeholder="Choose a username") }}
+            </div>
+
+            <div class="input-container">
+                {{ form.email.label }}
+                {{ form.email(class_='form-control', size=50, placeholder="Enter your email") }}
+            </div>
+
+            <div class="input-container">
+                {{ form.password.label }}
+                {{ form.password(class_='form-control', placeholder="Enter your password") }}
+            </div>
+
+            <div class="input-container">
+                {{ form.confirm_password.label }}
+                {{ form.confirm_password(class_='form-control', placeholder="Confirm your password") }}
+            </div>
+
+            <div class="input-container">
+                <label for="file-upload" class="custom-file-upload">Choose a file</label>
+                {{ form.profile_picture(id="file-upload", class_="file-input") }}
+                <span id="file-name">No file chosen</span>
+            </div>
+            <button type="submit" class="submit">
+                Create Account
+            </button>
+
+            <p class="login-register-link">
+                Have an account?
+                <a href="{{ url_for('auth.login') }}">Log in</a>
+            </p>
+        </form>
+        <script>
+            document.getElementById("file-upload").addEventListener("change", function () {
+                var fileName = this.files.length > 0 ? this.files[0].name : "No file chosen";
+                document.getElementById("file-name").textContent = fileName;
+            });
+            document.querySelector(".register").addEventListener("submit", function (event) {
+                var password = document.querySelector("input[name='password']").value;
+                var confirmPassword = document.querySelector("input[name='confirm_password']").value;
+
+                if (password !== confirmPassword) {
+                    event.preventDefault();
+                    alert("Passwords do not match! Please try again.");
+                }
+            });
+            setTimeout(function () {
+                let messages = document.querySelector('.flash-messages');
+                if (messages) {
+                    messages.style.transition = "opacity 0.5s";
+                    messages.style.opacity = "0";
+                    setTimeout(() => messages.remove(), 500);
+                }
+            }, 5000);
+        </script>
+
+        </main>
+    {% endblock %}
+</body>
+</html>

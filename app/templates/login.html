@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organize It! - Log In</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+<main>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    {% block content %}
+        <form method="POST" action="{{ url_for('auth.login', next=request.args.get('next')) }}" class="login">
+            {{ form.hidden_tag() }}
+            <p class="login-register-title">Log in</p>
+
+            <div class="input-container">
+                <label for="{{ form.username.id }}">Username:</label>
+                {{ form.username(class="form-input") }}
+
+                <label for="{{ form.password.id }}">Password:</label>
+                {{ form.password(class="form-input") }}
+            </div>
+
+            <button type="submit" class="submit">
+                Log in
+            </button>
+
+            <p class="login-register-link">
+                No account?
+                <a href="{{ url_for('auth.register') }}">Register Account</a>
+            </p>
+        </form>
+    {% endblock %}
+    <script>setTimeout(function () {
+        let messages = document.querySelector('.flash-messages');
+        if (messages) {
+            messages.style.transition = "opacity 0.5s";
+            messages.style.opacity = "0";
+            setTimeout(() => messages.remove(), 500);
+        }
+    }, 5000);</script>
+</main>
+</body>
+</html>

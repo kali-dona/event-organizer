@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organize It! - Event Organizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body class="{% if event and request.endpoint == 'event.event_detail' %}event-page{% endif %}">
+
+<header>
+    <nav>
+        <h1 class="main-heading">Organize It!</h1>
+        {% if current_user.is_authenticated %}
+            <div class="button-container-nav">
+                <a href="{{ url_for('index.index_route') }}" class="custom-button-nav">Home</a>
+                <a href="{{ url_for('user.user_profile', user_id=current_user.id) }}" class="custom-button-nav">My
+                    Profile</a>
+                <a href="{{ url_for('event.create_event') }}" class="custom-button-nav">Create Event</a>
+                <a href="{{ url_for('auth.logout') }}" class="custom-button-nav">Logout</a>
+            </div>
+        {% endif %}
+    </nav>
+</header>
+
+<main>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    {% block content %}
+    {% endblock %}
+</main>
+
+</body>
+<script>
+    setTimeout(function () {
+        let messages = document.querySelector('.flash-messages');
+        if (messages) {
+            messages.style.transition = "opacity 0.5s";
+            messages.style.opacity = "0";
+            setTimeout(() => messages.remove(), 500);
+        }
+    }, 5000);
+</script>
+
+</html>

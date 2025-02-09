@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="invitation-container">
+        <h2>{{ event.title }}</h2>
+        <p><strong>Event Description:</strong> {{ event.description }}</p>
+        <p><strong>Date:</strong> {{ event.date.strftime('%Y-%m-%d') }}</p>
+        <p><strong>Time:</strong> {{ event.date.strftime('%H:%M') }}</p>
+
+        {% if invitation.status == 'pending' %}
+            <form method="POST" class="invitation-form">
+                <button type="submit" name="action" value="accept" class="invitation-btn accept">Accept</button>
+                <button type="submit" name="action" value="decline" class="invitation-btn decline">Decline</button>
+            </form>
+        {% elif invitation.status == 'accepted' %}
+            <p class="invitation-status"> You have already accepted invitation for {{ event.title }}.</p>
+        {% elif invitation.status == 'declined' %}
+            <p class="invitation-status"> You have already declined invitation for {{ event.title }}.</p>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="edit-profile-container">
+
+        <h2>Edit Profile</h2>
+        <form method="POST" action="{{ url_for('user.edit_profile', user_id=user.id) }}" enctype="multipart/form-data">
+            <label for="first_name">First Name:</label>
+            <input type="text" name="first_name" value="{{ user.first_name }}" required>
+
+            <label for="last_name">Last Name:</label>
+            <input type="text" name="last_name" value="{{ user.last_name }}" required>
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" value="{{ user.email }}" required>
+
+            <label for="password">New Password (leave blank to keep current):</label>
+            <input type="password" name="password">
+
+            <div class="input-container">
+                <label for="file-upload" class="custom-file-upload">Choose a file</label>
+                <input type="file" id="file-upload" name="profile_picture" class="file-input">
+                <span id="file-name">No file chosen</span>
+            </div>
+
+            <button type="submit" class="btn btn-edit-profile">Save Changes</button>
+
+        </form>
+        <form action="{{ url_for('user.user_profile', user_id=user.id) }}">
+            <button type="submit" class="btn btn-edit-profile">Cancel</button>
+        </form>
+        <script>
+            document.getElementById("file-upload").addEventListener("change", function () {
+                var fileName = this.files.length > 0 ? this.files[0].name : "No file chosen";
+                document.getElementById("file-name").textContent = fileName;
+            });
+        </script>
+    </div>
+{% endblock %}

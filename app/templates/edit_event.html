@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="edit-event-page">
+        <p class="edit-event-title">Edit Event: {{ event.title }}</p>
+
+        <form method="POST">
+            <div class="edit-event-form-group">
+                <label for="title" class="edit-event-label">Event Title:</label>
+                <input type="text" id="title" name="title" value="{{ event.title }}" class="edit-event-input">
+            </div>
+
+            <div class="edit-event-form-group">
+                <label for="description" class="edit-event-label">Event Description:</label>
+                <textarea id="description" name="description"
+                          class="edit-event-textarea">{{ event.description }}</textarea>
+            </div>
+
+            <div class="edit-event-form-group">
+                <label for="date" class="edit-event-label">Date:</label>
+                <input type="date" id="date" name="date" value="{{ event.date.strftime('%Y-%m-%d') }}"
+                       class="edit-event-input">
+            </div>
+
+            <div class="edit-event-form-group">
+                <label for="time" class="edit-event-label">Time:</label>
+                <input type="time" id="time" name="time" value="{{ event.date.strftime('%H:%M') }}"
+                       class="edit-event-input">
+            </div>
+
+            <button type="submit" class="edit-event-btn">Save Changes</button>
+        </form>
+    </div>
+{% endblock %}

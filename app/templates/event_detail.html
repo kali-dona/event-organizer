@@ -1,0 +1,195 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="event-detail-container">
+
+        <div class="event-title">
+            <h1>{{ event.title }}</h1>
+        </div>
+
+        <div class="event-header">
+            <p><strong>Date And Time:</strong> {{ event.date }}</p>
+            <p><strong>Event Organizer:</strong> {{ event.organizer.first_name }} {{ event.organizer.last_name }}</p>
+        </div>
+
+        <div class="event-content">
+            <div class="event-description">
+                <h3>Event Description:</h3>
+                {% if event.description %}
+                    <p>{{ event.description }}</p>
+                {% else %}
+                    <p class="no-content-message">This event don't have description yet.</p>
+                {% endif %}
+            </div>
+
+            <div class="event-participants">
+                <h3>Guests:</h3>
+                {% if participants %}
+                    <ul id="participants-list">
+                        {% for participant in participants %}
+                            <li>{{ participant.username }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p class="no-content-message">There are no guests yet.</p>
+                {% endif %}
+                {% if is_owner and not event_has_passed %}
+                    <button id="add-participant-btn" class="btn-all-ev">+ Add Guest</button>
+                    <div id="invite-section" class="invite-section" style="display:none;">
+                        <form method="POST" action="{{ url_for('event.invite_to_event', event_id=event.id) }}">
+
+                            <div>
+                                <label for="invite_method">Choose How To Invite Guests:</label>
+                                <select id="invite_method" name="invite_method" class="custom-select"
+                                        onchange="toggleInviteFields()">
+                                    <option value="email">By Emails</option>
+                                    <option value="friends">From Your Friends</option>
+                                </select>
+                            </div>
+
+                            <div id="email_field">
+                                <label for="guest_email">Enter all emails separated by commas:</label>
+                                <textarea id="guest_email" name="guest_email" rows="3"></textarea>
+                            </div>
+
+                            <div id="friends_field" style="display: none;">
+                                {% if friends|length == 0 %}
+                                    <p>No added friends yet.</p>
+                                {% else %}
+                                    <label for="friends_field">Choose friends to invite:</label>
+                                    <ul>
+                                        {% for friend in friends %}
+                                            <li style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 5px;">
+                                                <div style="display: flex; align-items: center;">
+                                                    <img src="{{ url_for('static', filename='profile_pictures/' + friend.profile_picture) }}"
+                                                         alt="{{ friend.username }}"
+                                                         style="width: 30px; height: 30px; border-radius: 50%; margin-right: 10px;">
+                                                    <span>{{ friend.username }}</span>
+                                                </div>
+                                                <label class="container-checkbox">
+                                                    <input type="checkbox" name="friends" value="{{ friend.id }}">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            </div>
+
+                            <button type="submit" class="btn-all-ev">Send Invitations</button>
+                        </form>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        {% if is_owner and not event_has_passed %}
+
+            <div class="event-tasks">
+            <h3>To Do Tasks:</h3>
+            {% if tasks %}
+                <ul class="task-list">
+                    {% for task in tasks %}
+                        <li style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 5px;">
+                            <div style="display: flex; align-items: center;">
+                                <label class="container-checkbox" style="margin-right: 10px;">
+                                    <form id="toggle-task-{{ task.id }}" method="POST"
+                                          action="{{ url_for('event.toggle_task', task_id=task.id) }}">
+                                        <input type="checkbox"
+                                               onchange="document.getElementById('toggle-task-{{ task.id }}').submit();"
+                                                {% if task.completed %} checked {% endif %}>
+                                        <span class="checkmark"></span>
+                                    </form>
+                                </label>
+                                <span class="{% if task.completed %}completed-task{% endif %}">{{ task.title }}</span>
+                            </div>
+
+                            <form method="POST" action="{{ url_for('event.delete_task', task_id=task.id) }}">
+                                <button type="submit" class="btn-all-ev">Х</button>
+                            </form>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="no-content-message">No added tasks yet.</p>
+            {% endif %}
+        {% endif %}
+        {% if is_owner and not event_has_passed %}
+            <form action="{{ url_for('event.add_task', event_id=event.id) }}" method="POST">
+                <input type="text" name="task_title" placeholder="Enter task..." required>
+                <button type="submit" class="btn-all-ev">+ Add Task</button>
+            </form>
+        {% endif %}
+        </div>
+
+        <div class="event-comments">
+            <h3>Comments:</h3>
+            <form action="{{ url_for('event.add_comment', event_id=event.id) }}" method="POST">
+                <textarea name="content" placeholder="Write a comment..." required></textarea>
+                <button type="submit" class="btn-all-ev">+ Add a comment</button>
+            </form>
+            <ul class="comment-list">
+                {% for comment in comments %}
+                    <li class="comment-item">
+                        <p><strong>{{ comment.user.username }}:</strong> {{ comment.content }}</p>
+                        {% if comment.replies %}
+                            <ul class="reply-list">
+                                {% for reply in comment.replies %}
+                                    <li>
+                                        <p><strong>{{ reply.user.username }}:</strong> {{ reply.content }}</p>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                        <form method="POST" action="{{ url_for('event.add_comment', event_id=event.id) }}">
+                            <textarea name="content" placeholder="Write an answer..." required></textarea>
+                            <input type="hidden" name="parent_comment_id" value="{{ comment.id }}">
+                            <button type="submit" class="btn-all-ev">Reply</button>
+                        </form>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        {% if is_owner and not event_has_passed %}
+            <div class="profile-actions">
+                <a href="{{ url_for('event.edit_event', event_id=event.id) }}" class="btn-all-ev edit-ev-btn">Edit
+                    Event</a>
+                <form action="{{ url_for('event.delete_event', event_id=event.id) }}" method="post"
+                      style="display:inline;">
+                    <button type="submit" class="btn-all-ev">Delete Event</button>
+                </form>
+            </div>
+        {% endif %}
+    </div>
+
+    <script>
+        function toggleInviteFields() {
+            const inviteMethod = document.getElementById('invite_method').value;
+            const emailField = document.getElementById('email_field');
+            const friendsField = document.getElementById('friends_field');
+
+            if (inviteMethod === 'email') {
+                emailField.style.display = 'block';
+                friendsField.style.display = 'none';
+            } else if (inviteMethod === 'friends') {
+                emailField.style.display = 'none';
+                friendsField.style.display = 'block';
+            }
+        }
+
+        document.getElementById('add-participant-btn').addEventListener('click', function () {
+            const inviteSection = document.getElementById('invite-section');
+            inviteSection.style.display = inviteSection.style.display === 'none' ? 'block' : 'none';
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(() => {
+                const flashMessages = document.querySelectorAll(".alert");
+                flashMessages.forEach(msg => {
+                    msg.style.transition = "opacity 1.5s ease-in-out";
+                    msg.style.opacity = "0";
+                    setTimeout(() => msg.remove(), 1500);
+                });
+            }, 2000);
+        });
+    </script>
+{% endblock %}

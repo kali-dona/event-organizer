@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="profile-section">
+        {% if full_access %}
+            <div class="profile-header">
+                <img src="{{ url_for('static', filename='profile_pictures/' ~ user.profile_picture) }}"
+                     alt="Profile Picture" class="profile-picture">
+                <div class="name-user"><p>{{ user.first_name }} {{ user.last_name }}</p></div>
+                <p><strong>Username:</strong> {{ user.username }}</p>
+                <p><strong>Email:</strong> {{ user.email }}</p>
+            </div>
+
+            <div class="friends-container">
+                <div class="friends-list-container">
+                    <h3>Friend Requests</h3>
+                    {% if user.received_requests %}
+                        <ul class="friends-list">
+                            {% for request in user.received_requests if request.status == 'pending' %}
+                                <li class="friend-item">
+                                    <img src="{{ url_for('static', filename='profile_pictures/' ~ request.sender.profile_picture) }}"
+                                         alt="{{ request.sender.first_name }}'s profile picture" class="friend-photo">
+                                    <span>{{ request.sender.first_name }} {{ request.sender.last_name }}</span>
+                                    <form action="{{ url_for('user.respond_friend_request', request_id=request.id, action='accept') }}"
+                                          method="POST" style="display: inline;">
+                                        <button type="submit" class="btn btn-all">Accept</button>
+                                    </form>
+                                    <form action="{{ url_for('user.respond_friend_request', request_id=request.id, action='decline') }}"
+                                          method="POST" style="display: inline;">
+                                        <button type="submit" class="btn btn-all">Decline</button>
+                                    </form>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p>No pending friend requests.</p>
+                    {% endif %}
+
+                    <h3>Your Friends</h3>
+                    {% if user.friends %}
+                        <ul class="friends-list">
+                            {% for friend in user.friends %}
+                                <li class="friend-item">
+                                    <img src="{{ url_for('static', filename='profile_pictures/' ~ friend.profile_picture) }}"
+                                         alt="{{ friend.first_name }}'s profile picture" class="friend-photo">
+                                    <a href="{{ url_for('user.user_profile', user_id=friend.id) }}">{{ friend.first_name }} {{ friend.last_name }}</a>
+                                    <form action="{{ url_for('user.remove_friend', friend_id=friend.id) }}"
+                                          method="POST" style="display: inline;">
+                                        <button type="submit" class="btn btn-all">Remove</button>
+                                    </form>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p>You have no added friends yet.</p>
+                    {% endif %}
+                </div>
+
+                <div class="search-friends">
+                    <h3>Add Friend</h3>
+                    <form method="GET" action="{{ url_for('user.search_friend') }}">
+                        <input type="text" name="search_term" placeholder="Search by Name, Username, or Email" required>
+                        <button type="submit" class="btn btn-all-2">Search</button>
+                    </form>
+
+                    {% if search_results %}
+                        <h4>Search Results:</h4>
+                        <ul class="friends-list">
+                            {% for user in search_results %}
+                                <li class="friend-item">
+                                    <img src="{{ url_for('static', filename='profile_pictures/' ~ user.profile_picture) }}"
+                                         alt="{{ user.username }}" class="friend-photo">
+                                    <span>{{ user.username }}</span>
+                                    <form method="POST"
+                                          action="{{ url_for('user.send_friend_request', friend_id=user.id) }}">
+                                        <button type="submit" class="btn btn-all">Add</button>
+                                    </form>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% elif search_term %}
+                        <p>No users found for "{{ search_term }}".</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="profile-actions">
+                <a href="{{ url_for('user.edit_profile', user_id=user.id) }}" class="btn btn-all-edit">Edit Profile</a>
+                <form method="POST" action="{{ url_for('user.delete_account') }}">
+                    <button type="submit" class="btn btn-all">Delete My Account</button>
+                </form>
+            </div>
+            </div>
+
+        {% else %}
+            <div class="profile-header-2">
+                <img src="{{ url_for('static', filename='profile_pictures/' ~ user.profile_picture) }}"
+                     alt="Profile Picture" class="profile-picture">
+                <div class="name-user-2"><p>{{ user.first_name }} {{ user.last_name }}</p></div>
+                <p><strong>Username:</strong> {{ user.username }}</p>
+                <p><strong>Email:</strong> {{ user.email }}</p>
+            </div>
+
+            {% if user not in current_user.friends %}
+                <form action="{{ url_for('user.send_friend_request', friend_id=user.id) }}" method="POST">
+                    <button type="submit" class="btn btn-all">Add Friend</button>
+                </form>
+            {% endif %}
+        {% endif %}
+
+{% endblock %}

@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="18c99d3e-b605-4e2a-ac26-ddfb44442c10" name="Changes" comment="Initial Commit">
+      <change afterPath="$PROJECT_DIR$/.coverage" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/EventOrganizer.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/auth/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/auth/routes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/event/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/event/routes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/index/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/index/routes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/logger.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/css/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/profile_pictures/Screenshot_20250119-123036.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/profile_pictures/default_profile.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/profile_pictures/profile.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/profile_pictures/rostyslav-savchyn-OG9Ll1uZEPo-unsplash.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/profile_pictures/the-everygirl-november-tech-23-desktop-2-monday-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/tasks.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/create_event.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/edit_event.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/edit_profile.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/event_detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/invitation_page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/user_profile.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/routes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/instance/app.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/alembic.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/env.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/script.py.mako" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/versions/fbf778fafb87_initial_migration.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/conftest.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_auth.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_event.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_index.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_user.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Flask Main" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform)); sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo, NoAppException&#10;for module in [&quot;main.py&quot;, &quot;wsgi.py&quot;, &quot;app.py&quot;]:&#10;    try: locals().update(ScriptInfo(app_import_path=module, create_app=None).load_app().make_shell_context()); print(&quot;\nFlask App: %s&quot; % app.import_name); break&#10;    except NoAppException: pass">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform)); sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo, NoAppException&#10;for module in [&quot;main.py&quot;, &quot;wsgi.py&quot;, &quot;app.py&quot;]:&#10;    try: locals().update(ScriptInfo(app_import_path=module, create_app=None).load_app().make_shell_context()); print(&quot;\nFlask App: %s&quot; % app.import_name); break&#10;    except NoAppException: pass" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
+    </option>
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2sfWGs91tOMS65KYow1elPb3lc9" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python tests.pytest for test_auth.test_invalid_login.executor": "Run",
+    "Python tests.pytest for test_auth.test_login.executor": "Run",
+    "Python tests.pytest for test_auth.test_login_invalid.executor": "Run",
+    "Python tests.pytest for test_auth.test_login_invalid_credentials.executor": "Run",
+    "Python tests.pytest for test_auth.test_login_redirect_after_success.executor": "Run",
+    "Python tests.pytest for test_auth.test_logout.executor": "Run",
+    "Python tests.pytest for test_auth.test_register.executor": "Run",
+    "Python tests.pytest for test_auth.test_register_existing_email.executor": "Run",
+    "Python tests.pytest for test_auth.test_register_existing_username.executor": "Run",
+    "Python tests.pytest for test_auth.test_register_invalid_email.executor": "Run",
+    "Python tests.pytest for test_auth.test_register_invalid_username.executor": "Run",
+    "Python tests.pytest for test_auth.test_register_password_mismatch.executor": "Run",
+    "Python tests.pytest for test_event.test_add_comment_empty_content.executor": "Run",
+    "Python tests.pytest for test_event.test_add_comment_logged_in.executor": "Run",
+    "Python tests.pytest for test_event.test_add_comment_not_invited.executor": "Run",
+    "Python tests.pytest for test_event.test_add_task_as_organizer.executor": "Run",
+    "Python tests.pytest for test_event.test_add_task_not_organizer.executor": "Run",
+    "Python tests.pytest for test_event.test_create_comment_notification.executor": "Run",
+    "Python tests.pytest for test_event.test_create_event_invalid_date.executor": "Run",
+    "Python tests.pytest for test_event.test_create_event_invite_by_email.executor": "Run",
+    "Python tests.pytest for test_event.test_create_event_invite_friends.executor": "Run",
+    "Python tests.pytest for test_event.test_create_event_missing_required_fields.executor": "Run",
+    "Python tests.pytest for test_event.test_create_event_not_logged_in.executor": "Run",
+    "Python tests.pytest for test_event.test_create_event_success.executor": "Run",
+    "Python tests.pytest for test_event.test_delete_event_success.executor": "Run",
+    "Python tests.pytest for test_event.test_delete_event_unauthorized.executor": "Run",
+    "Python tests.pytest for test_event.test_delete_task_as_organizer.executor": "Run",
+    "Python tests.pytest for test_event.test_delete_task_not_organizer.executor": "Run",
+    "Python tests.pytest for test_event.test_edit_event_invalid_date.executor": "Run",
+    "Python tests.pytest for test_event.test_edit_event_success.executor": "Run",
+    "Python tests.pytest for test_event.test_edit_event_unauthorized.executor": "Run",
+    "Python tests.pytest for test_event.test_event_detail.executor": "Run",
+    "Python tests.pytest for test_event.test_invitation_exists_with_email.executor": "Run",
+    "Python tests.pytest for test_event.test_invitation_exists_with_user_id.executor": "Run",
+    "Python tests.pytest for test_event.test_invitation_page.executor": "Run",
+    "Python tests.pytest for test_event.test_invite_to_event.executor": "Run",
+    "Python tests.pytest for test_event.test_toggle_task_completion_as_organizer.executor": "Run",
+    "Python tests.pytest for test_event.test_toggle_task_completion_not_organizer.executor": "Run",
+    "Python tests.pytest for test_forms.test_registration_form_password_mismatch.executor": "Run",
+    "Python tests.pytest for test_forms.test_registration_form_valid.executor": "Run",
+    "Python tests.pytest for test_index.test_home_route_authenticated_no_events_no_notifications.executor": "Run",
+    "Python tests.pytest for test_index.test_home_route_authenticated_with_events_and_notifications.executor": "Run",
+    "Python tests.pytest for test_index.test_index_route.executor": "Run",
+    "Python tests.pytest for test_index.test_index_route_authenticated.executor": "Run",
+    "Python tests.pytest for test_index.test_index_route_not_logged_in.executor": "Run",
+    "Python tests.pytest for test_index.test_index_route_redirects_authenticated_user.executor": "Run",
+    "Python tests.pytest for test_index.test_index_route_unauthenticated.executor": "Run",
+    "Python tests.pytest for test_models.TestModels.test_attendance_creation.executor": "Run",
+    "Python tests.pytest for test_models.TestModels.test_comment_creation.executor": "Run",
+    "Python tests.pytest for test_models.TestModels.test_event_creation.executor": "Run",
+    "Python tests.pytest for test_models.TestModels.test_friend_request_creation.executor": "Run",
+    "Python tests.pytest for test_models.TestModels.test_invitation_creation.executor": "Run",
+    "Python tests.pytest for test_models.TestModels.test_notification_creation.executor": "Run",
+    "Python tests.pytest for test_models.TestModels.test_task_creation.executor": "Run",
+    "Python tests.pytest for test_models.TestModels.test_user_creation.executor": "Run",
+    "Python tests.pytest for test_models.test_attendance_creation.executor": "Run",
+    "Python tests.pytest for test_models.test_comment_creation.executor": "Run",
+    "Python tests.pytest for test_models.test_event_creation.executor": "Run",
+    "Python tests.pytest for test_models.test_friend_request_creation.executor": "Run",
+    "Python tests.pytest for test_models.test_invitation_creation.executor": "Run",
+    "Python tests.pytest for test_models.test_notification_creation.executor": "Run",
+    "Python tests.pytest for test_models.test_task_creation.executor": "Run",
+    "Python tests.pytest for test_models.test_user_creation.executor": "Run",
+    "Python tests.pytest for test_user.test_delete_account.executor": "Run",
+    "Python tests.pytest for test_user.test_edit_profile.executor": "Run",
+    "Python tests.pytest for test_user.test_respond_friend_request_accept.executor": "Run",
+    "Python tests.pytest for test_user.test_search_friend.executor": "Run",
+    "Python tests.pytest for test_user.test_send_friend_request.executor": "Run",
+    "Python tests.pytest for test_user.test_user_profile.executor": "Run",
+    "Python tests.pytest in test_models.py.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "D:/EventOrganizer/app/static/profile_pictures",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "aDefault",
+    "settings.editor.selected.configurable": "vcs.Git",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\EventOrganizer\app\static\profile_pictures" />
+      <recent name="D:\EventOrganizer\app" />
+      <recent name="D:\EventOrganizer" />
+      <recent name="D:\EventOrganizer\app\templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\EventOrganizer\app\static\css" />
+      <recent name="D:\EventOrganizer\app" />
+      <recent name="D:\EventOrganizer" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python tests.pytest for test_event.test_invitation_exists_with_user_id">
+    <configuration name="EventOrganizer" type="Python.FlaskServer">
+      <module name="EventOrganizer" />
+      <option name="target" value="$PROJECT_DIR$/main.py" />
+      <option name="targetType" value="PATH" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for test_event.test_create_comment_notification" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="EventOrganizer" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_event.test_create_comment_notification&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for test_event.test_invitation_exists_with_email" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="EventOrganizer" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_event.test_invitation_exists_with_email&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for test_event.test_invitation_exists_with_user_id" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="EventOrganizer" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_event.test_invitation_exists_with_user_id&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for test_forms.test_registration_form_password_mismatch" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="EventOrganizer" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_forms.test_registration_form_password_mismatch&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for test_forms.test_registration_form_valid" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="EventOrganizer" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_forms.test_registration_form_valid&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.pytest for test_event.test_invitation_exists_with_user_id" />
+        <item itemvalue="Python tests.pytest for test_event.test_invitation_exists_with_email" />
+        <item itemvalue="Python tests.pytest for test_event.test_create_comment_notification" />
+        <item itemvalue="Python tests.pytest for test_forms.test_registration_form_password_mismatch" />
+        <item itemvalue="Python tests.pytest for test_forms.test_registration_form_valid" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-PY-243.22562.220" />
+        <option value="bundled-python-sdk-0fc6c617c4bd-9a18a617cbe4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.22562.220" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="18c99d3e-b605-4e2a-ac26-ddfb44442c10" name="Changes" comment="" />
+      <created>1738847017313</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1738847017313</updated>
+      <workItem from="1738847018407" duration="43812000" />
+      <workItem from="1738946934499" duration="77469000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial Commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial Commit" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_auth_test_register_invalid_username.coverage" NAME="pytest for test_auth.test_register_invalid_username Coverage Results" MODIFIED="1739056532702" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_models_test_friend_request_creation.coverage" NAME="pytest for test_models.test_friend_request_creation Coverage Results" MODIFIED="1739020880870" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_user_test_send_friend_request.coverage" NAME="pytest for test_user.test_send_friend_request Coverage Results" MODIFIED="1739029956881" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_models_TestModels_test_attendance_creation.coverage" NAME="pytest for test_models.TestModels.test_attendance_creation Coverage Results" MODIFIED="1739019483470" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_event_test_add_comment_logged_in.coverage" NAME="pytest for test_event.test_add_comment_logged_in Coverage Results" MODIFIED="1739037790612" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_index_test_index_route_not_logged_in.coverage" NAME="pytest for test_index.test_index_route_not_logged_in Coverage Results" MODIFIED="1739021954860" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_event_test_create_comment_notification.coverage" NAME="pytest for test_event.test_create_comment_notification Coverage Results" MODIFIED="1739106680751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_event_test_invitation_exists_with_user_id.coverage" NAME="pytest for test_event.test_invitation_exists_with_user_id Coverage Results" MODIFIED="1739109150244" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_event_test_edit_event_invalid_date.coverage" NAME="pytest for test_event.test_edit_event_invalid_date Coverage Results" MODIFIED="1739034925074" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_event_test_create_event_invalid_date.coverage" NAME="pytest for test_event.test_create_event_invalid_date Coverage Results" MODIFIED="1739031616946" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_models_test_invitation_creation.coverage" NAME="pytest for test_models.test_invitation_creation Coverage Results" MODIFIED="1739020907909" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_auth_test_login_redirect_after_success.coverage" NAME="pytest for test_auth.test_login_redirect_after_success Coverage Results" MODIFIED="1739058901595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_forms_test_registration_form_valid.coverage" NAME="pytest for test_forms.test_registration_form_valid Coverage Results" MODIFIED="1739101741025" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_index_test_home_route_authenticated_no_events_no_notifications.coverage" NAME="pytest for test_index.test_home_route_authenticated_no_events_no_notifications Coverage Results" MODIFIED="1739023181781" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_models_TestModels_test_friend_request_creation.coverage" NAME="pytest for test_models.TestModels.test_friend_request_creation Coverage Results" MODIFIED="1739019454936" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_event_test_invitation_page.coverage" NAME="pytest for test_event.test_invitation_page Coverage Results" MODIFIED="1739037292008" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_auth_test_register_password_mismatch.coverage" NAME="pytest for test_auth.test_register_password_mismatch Coverage Results" MODIFIED="1739058738943" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_models_TestModels_test_invitation_creation.coverage" NAME="pytest for test_models.TestModels.test_invitation_creation Coverage Results" MODIFIED="1739019596855" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_models_TestModels_test_event_creation.coverage" NAME="pytest for test_models.TestModels.test_event_creation Coverage Results" MODIFIED="1739019466363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_user_test_user_profile.coverage" NAME="pytest for test_user.test_user_profile Coverage Results" MODIFIED="1739024821767" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_models_TestModels_test_comment_creation.coverage" NAME="pytest for test_models.TestModels.test_comment_creation Coverage Results" MODIFIED="1739019489481" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_in_test_models_py.coverage" NAME="pytest in test_models.py Coverage Results" MODIFIED="1739020098297" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_event_test_create_event_invite_by_email.coverage" NAME="pytest for test_event.test_create_event_invite_by_email Coverage Results" MODIFIED="1739033372313" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_auth_test_register_invalid_email.coverage" NAME="pytest for test_auth.test_register_invalid_email Coverage Results" MODIFIED="1739056367227" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_event_test_add_task_as_organizer.coverage" NAME="pytest for test_event.test_add_task_as_organizer Coverage Results" MODIFIED="1739038285800" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_auth_test_invalid_login.coverage" NAME="pytest for test_auth.test_invalid_login Coverage Results" MODIFIED="1739056221571" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_user_test_respond_friend_request_accept.coverage" NAME="pytest for test_user.test_respond_friend_request_accept Coverage Results" MODIFIED="1739028536130" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_event_test_add_comment_not_invited.coverage" NAME="pytest for test_event.test_add_comment_not_invited Coverage Results" MODIFIED="1739038221342" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_event_test_delete_task_not_organizer.coverage" NAME="pytest for test_event.test_delete_task_not_organizer Coverage Results" MODIFIED="1739038789330" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_event_test_toggle_task_completion_as_organizer.coverage" NAME="pytest for test_event.test_toggle_task_completion_as_organizer Coverage Results" MODIFIED="1739038932144" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_event_test_invitation_exists_with_email.coverage" NAME="pytest for test_event.test_invitation_exists_with_email Coverage Results" MODIFIED="1739108006104" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_event_test_event_detail.coverage" NAME="pytest for test_event.test_event_detail Coverage Results" MODIFIED="1739037020390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_auth_test_login.coverage" NAME="pytest for test_auth.test_login Coverage Results" MODIFIED="1739040109360" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_models_test_task_creation.coverage" NAME="pytest for test_models.test_task_creation Coverage Results" MODIFIED="1739020889163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_user_test_edit_profile.coverage" NAME="pytest for test_user.test_edit_profile Coverage Results" MODIFIED="1739024956471" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_user_test_search_friend.coverage" NAME="pytest for test_user.test_search_friend Coverage Results" MODIFIED="1739027714481" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_index_test_index_route_unauthenticated.coverage" NAME="pytest for test_index.test_index_route_unauthenticated Coverage Results" MODIFIED="1739022803891" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_models_TestModels_test_task_creation.coverage" NAME="pytest for test_models.TestModels.test_task_creation Coverage Results" MODIFIED="1739019474416" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_event_test_create_event_success.coverage" NAME="pytest for test_event.test_create_event_success Coverage Results" MODIFIED="1739030594097" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_auth_test_register_existing_email.coverage" NAME="pytest for test_auth.test_register_existing_email Coverage Results" MODIFIED="1739058733339" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_models_TestModels_test_notification_creation.coverage" NAME="pytest for test_models.TestModels.test_notification_creation Coverage Results" MODIFIED="1739019589825" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_event_test_create_event_missing_required_fields.coverage" NAME="pytest for test_event.test_create_event_missing_required_fields Coverage Results" MODIFIED="1739031562378" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_event_test_create_event_invite_friends.coverage" NAME="pytest for test_event.test_create_event_invite_friends Coverage Results" MODIFIED="1739033006181" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_auth_test_register_existing_username.coverage" NAME="pytest for test_auth.test_register_existing_username Coverage Results" MODIFIED="1739058727154" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_event_test_delete_event_unauthorized.coverage" NAME="pytest for test_event.test_delete_event_unauthorized Coverage Results" MODIFIED="1739035184862" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_models_test_attendance_creation.coverage" NAME="pytest for test_models.test_attendance_creation Coverage Results" MODIFIED="1739020892963" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_event_test_invite_to_event.coverage" NAME="pytest for test_event.test_invite_to_event Coverage Results" MODIFIED="1739037614982" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_auth_test_logout.coverage" NAME="pytest for test_auth.test_logout Coverage Results" MODIFIED="1739040814127" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_user_test_delete_account.coverage" NAME="pytest for test_user.test_delete_account Coverage Results" MODIFIED="1739024913150" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_auth_test_register.coverage" NAME="pytest for test_auth.test_register Coverage Results" MODIFIED="1739040029878" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_models_test_event_creation.coverage" NAME="pytest for test_models.test_event_creation Coverage Results" MODIFIED="1739020884820" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_event_test_add_task_not_organizer.coverage" NAME="pytest for test_event.test_add_task_not_organizer Coverage Results" MODIFIED="1739038387016" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_event_test_edit_event_success.coverage" NAME="pytest for test_event.test_edit_event_success Coverage Results" MODIFIED="1739036492847" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_models_test_notification_creation.coverage" NAME="pytest for test_models.test_notification_creation Coverage Results" MODIFIED="1739020904626" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_event_test_toggle_task_completion_not_organizer.coverage" NAME="pytest for test_event.test_toggle_task_completion_not_organizer Coverage Results" MODIFIED="1739038939487" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_event_test_add_comment_empty_content.coverage" NAME="pytest for test_event.test_add_comment_empty_content Coverage Results" MODIFIED="1739038955033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_forms_test_registration_form_password_mismatch.coverage" NAME="pytest for test_forms.test_registration_form_password_mismatch Coverage Results" MODIFIED="1739101761363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_index_test_home_route_authenticated_with_events_and_notifications.coverage" NAME="pytest for test_index.test_home_route_authenticated_with_events_and_notifications Coverage Results" MODIFIED="1739023186188" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_event_test_create_event_not_logged_in.coverage" NAME="pytest for test_event.test_create_event_not_logged_in Coverage Results" MODIFIED="1739032501201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_event_test_delete_task_as_organizer.coverage" NAME="pytest for test_event.test_delete_task_as_organizer Coverage Results" MODIFIED="1739038743878" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_auth_test_login_invalid_credentials.coverage" NAME="pytest for test_auth.test_login_invalid_credentials Coverage Results" MODIFIED="1739059665859" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_models_TestModels_test_user_creation.coverage" NAME="pytest for test_models.TestModels.test_user_creation Coverage Results" MODIFIED="1739019445966" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_models_test_comment_creation.coverage" NAME="pytest for test_models.test_comment_creation Coverage Results" MODIFIED="1739020899678" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_event_test_delete_event_success.coverage" NAME="pytest for test_event.test_delete_event_success Coverage Results" MODIFIED="1739034929275" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_event_test_edit_event_unauthorized.coverage" NAME="pytest for test_event.test_edit_event_unauthorized Coverage Results" MODIFIED="1739034912322" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_index_test_index_route_authenticated.coverage" NAME="pytest for test_index.test_index_route_authenticated Coverage Results" MODIFIED="1739023174959" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_index_test_index_route.coverage" NAME="pytest for test_index.test_index_route Coverage Results" MODIFIED="1739022565594" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_models_test_user_creation.coverage" NAME="pytest for test_models.test_user_creation Coverage Results" MODIFIED="1739020875144" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_auth_test_login_invalid.coverage" NAME="pytest for test_auth.test_login_invalid Coverage Results" MODIFIED="1739055998637" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EventOrganizer$pytest_for_test_index_test_index_route_redirects_authenticated_user.coverage" NAME="pytest for test_index.test_index_route_redirects_authenticated_user Coverage Results" MODIFIED="1739017477005" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+  </component>
+</project>

@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if current_user.is_authenticated %}
+        <form action="{{ url_for('event.create_event') }}" method="POST" class="event-form">
+            <div>
+                <label for="title">Event Title:</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+
+            <div>
+                <label for="description">Event Description:</label>
+                <textarea id="description" name="description" rows="4"></textarea>
+            </div>
+
+            <div>
+                <label for="date">Date And Time:</label>
+                <input type="datetime-local" id="date" name="date" required>
+            </div>
+
+            <div>
+                <label for="invite_method">Choose How To Invite Guests:</label>
+                <select id="invite_method" name="invite_method" onchange="toggleInviteFields()">
+                    <option value="email">By Emails</option>
+                    <option value="friends">From Your Friends</option>
+                </select>
+            </div>
+
+            <div id="email_field">
+                <label for="guest_email">Enter all emails separated by commas:</label>
+                <textarea id="guest_email" name="guest_email" rows="3"></textarea>
+            </div>
+
+            <div id="friends_field" style="display: none;">
+                {% if friends|length == 0 %}
+                    <p>No added friends yet.</p>
+                {% else %}
+                    <label for="friends_field">Choose friends to invite:</label>
+                    <ul style="list-style: none; padding: 0;">
+                        {% for friend in friends %}
+                            <li style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 5px;">
+                                <div style="display: flex; align-items: center;">
+                                    <img src="{{ url_for('static', filename='profile_pictures/' + friend.profile_picture) }}"
+                                         alt="{{ friend.username }}"
+                                         style="width: 30px; height: 30px; border-radius: 50%; margin-right: 10px;">
+                                    <span>{{ friend.username }}</span>
+                                </div>
+                                <label class="container-checkbox">
+                                    <input type="checkbox" name="friends" value="{{ friend.id }}">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            <button type="submit">Create event</button>
+        </form>
+
+        <script>
+            function toggleInviteFields() {
+                const inviteMethod = document.getElementById('invite_method').value;
+                const emailField = document.getElementById('email_field');
+                const friendsField = document.getElementById('friends_field');
+
+                if (inviteMethod === 'email') {
+                    emailField.style.display = 'block';
+                    friendsField.style.display = 'none';
+                } else if (inviteMethod === 'friends') {
+                    emailField.style.display = 'none';
+                    friendsField.style.display = 'block';
+                }
+            }
+        </script>
+    {% else %}
+        <p>Please, <a href="{{ url_for('auth.login') }}">login in your profile</a> in order to create event.</p>
+    {% endif %}
+{% endblock %}
