@@ -1,11 +1,13 @@
-from werkzeug.security import generate_password_hash
-from app.models import FriendRequest, Attendance, Task, Comment, Notification, Invitation
+"""Test models in the application."""
 from datetime import datetime
+from werkzeug.security import generate_password_hash
+from app.models import (User, Event, FriendRequest, Attendance,
+                        Task, Comment, Notification, Invitation)
 from app import db
-from app.models import User, Event
 
 
 def test_user_creation(app, init_database):
+    """Test the creation of a new user."""
     user = User(
         username='john_doe',
         email='john1@example.com',  # Уникален имейл
@@ -22,6 +24,7 @@ def test_user_creation(app, init_database):
 
 
 def test_friend_request_creation(app, init_database):
+    """Test the creation of a new friend request."""
     user1 = User.query.filter_by(email='test1@example.com').first()
     user2 = User.query.filter_by(email='test2@example.com').first()
 
@@ -35,6 +38,7 @@ def test_friend_request_creation(app, init_database):
 
 
 def test_event_creation(app, init_database):
+    """Test the creation of a new event."""
     user = User.query.filter_by(email='test1@example.com').first()
 
     event = Event(
@@ -52,6 +56,7 @@ def test_event_creation(app, init_database):
 
 
 def test_task_creation(app, init_database):
+    """Test the creation of a new task."""
     user = User.query.filter_by(email='test1@example.com').first()
     event = Event.query.filter_by(title='Test Event').first()
 
@@ -71,6 +76,7 @@ def test_task_creation(app, init_database):
 
 
 def test_attendance_creation(app, init_database):
+    """Test the creation of a new attendance."""
     user = User.query.filter_by(email='test1@example.com').first()
     event = Event.query.filter_by(title='Test Event').first()
 
@@ -88,6 +94,7 @@ def test_attendance_creation(app, init_database):
 
 
 def test_comment_creation(app, init_database):
+    """Test the creation of a new comment."""
     user = User.query.filter_by(email='test1@example.com').first()
     event = Event.query.filter_by(title='Test Event').first()
 
@@ -105,6 +112,7 @@ def test_comment_creation(app, init_database):
 
 
 def test_notification_creation(app, init_database):
+    """Test the creation of a new notification."""
     user = User.query.filter_by(email='test1@example.com').first()
     event = Event.query.filter_by(title='Test Event').first()
 
@@ -121,7 +129,7 @@ def test_notification_creation(app, init_database):
 
 
 def test_invitation_creation(app, init_database):
-    user = User.query.filter_by(email='test1@example.com').first()
+    """Test the creation of a new invitation."""
     event = Event.query.filter_by(title='Test Event').first()
 
     invitation = Invitation(

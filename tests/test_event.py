@@ -1,11 +1,11 @@
+"""Tests for the event module"""
 from flask import url_for
 from app.models import User, Event, Invitation, Attendance, Notification, Comment, Task
 from app import db
-from app.event.routes import (send_update_email, invitation_exists,
-                              create_invitation_notification, create_comment_notification, send_invitations)
 
 # TEST FOR CREATE_EVENT
 def test_create_event_success(client, auth, init_database):
+    """Test creating an event successfully"""
     auth.login()
     event_data = {
         'title': 'Valid Event Title',
@@ -25,6 +25,7 @@ def test_create_event_success(client, auth, init_database):
 
 
 def test_create_event_missing_required_fields(client, auth, init_database):
+    """Test creating an event with missing required fields"""
     auth.login()
     event_data = {
         'title': '',
@@ -48,6 +49,7 @@ def test_create_event_missing_required_fields(client, auth, init_database):
 
 
 def test_create_event_invalid_date(client, auth, init_database):
+    """Test creating an event with invalid date"""
     auth.login()
     event_data = {
         'title': 'Past Event',
@@ -61,6 +63,7 @@ def test_create_event_invalid_date(client, auth, init_database):
 
 
 def test_create_event_invite_friends(client, auth, init_database):
+    """Test creating an event with method friends as invited"""
     auth.login()
     user1 = User.query.filter_by(username='testuser1').first()
     user2 = User.query.filter_by(username='testuser2').first()
@@ -97,6 +100,7 @@ def test_create_event_invite_friends(client, auth, init_database):
 
 
 def test_create_event_invite_by_email(client, auth, init_database):
+    """Test creating an event with method email as invited"""
     auth.login()
 
     event_data = {
@@ -129,6 +133,7 @@ def test_create_event_invite_by_email(client, auth, init_database):
 
 # TEST FOR EDIT_EVENT
 def test_edit_event_success(client, auth, sample_event):
+    """Test editing an event successfully"""
     auth.login()
     new_data = {
         'title': 'Updated Event Title',
@@ -154,6 +159,7 @@ def test_edit_event_success(client, auth, sample_event):
 
 
 def test_edit_event_unauthorized(client, auth, sample_event, another_user):
+    """Test editing an event when not authorized."""
     auth.login(another_user.email)
     response = client.post(
         url_for(
@@ -171,6 +177,7 @@ def test_edit_event_unauthorized(client, auth, sample_event, another_user):
 
 
 def test_edit_event_invalid_date(client, auth, sample_event):
+    """Test editing an event with invalid date"""
     auth.login()
     response = client.post(
         url_for(
@@ -185,6 +192,7 @@ def test_edit_event_invalid_date(client, auth, sample_event):
 
 # TESTS FOR DELETE EVENT
 def test_delete_event_success(client, auth, sample_event):
+    """Test deleting an event successfully"""
     auth.login()
     response = client.post(
         url_for(
@@ -204,6 +212,7 @@ def test_delete_event_success(client, auth, sample_event):
 
 # TEST FOR EVENT_DETAIL
 def test_event_detail(client, init_database, auth):
+    """Test event detail page"""
     auth.login()
     event = Event.query.first()
     response = client.get(f"/event/{event.id}")
@@ -219,6 +228,7 @@ def test_event_detail(client, init_database, auth):
 
 # TEST FOR INVITATION_PAGE
 def test_invitation_page(client, init_database, auth):
+    """Test invitation page to accept or decline invitation"""
     auth.login()
 
     user = User.query.first()
@@ -259,6 +269,7 @@ def test_invitation_page(client, init_database, auth):
 
 # TEST FOR INVITE_TO_EVENT
 def test_invite_to_event(client, init_database, auth):
+    """Test inviting a user to an event"""
     auth.login()
     event = Event.query.first()
 
@@ -289,6 +300,7 @@ def test_invite_to_event(client, init_database, auth):
 
 # TEST FOR ADD_COMMENT
 def test_add_comment_logged_in(client, auth, sample_event):
+    """Test adding a comment to an event"""
     auth.login()
     event_id = sample_event.id
     response = client.post(
@@ -301,6 +313,7 @@ def test_add_comment_logged_in(client, auth, sample_event):
 
 
 def test_add_comment_not_invited(client, auth, sample_event, another_user):
+    """Test adding a comment to an event when not invited"""
     auth.login(another_user.email)
 
     event_id = sample_event.id
@@ -315,6 +328,7 @@ def test_add_comment_not_invited(client, auth, sample_event, another_user):
 
 # TEST FOR TASKS
 def test_add_task_as_organizer(client, auth, sample_event):
+    """Test adding a task to an event"""
     auth.login()
     event_id = sample_event.id
     response = client.post(
@@ -326,6 +340,7 @@ def test_add_task_as_organizer(client, auth, sample_event):
 
 
 def test_add_task_not_organizer(client, auth, sample_event, another_user):
+    """Test adding a task to an event when not organizer"""
     auth.login(another_user.email, 'password')
 
     event_id = sample_event.id
@@ -339,6 +354,7 @@ def test_add_task_not_organizer(client, auth, sample_event, another_user):
 
 
 def test_delete_task_as_organizer(client, auth, sample_event):
+    """Test deleting a task from an event"""
     auth.login()
 
     task = Task.query.filter_by(event_id=sample_event.id).first()
@@ -360,6 +376,7 @@ def test_delete_task_as_organizer(client, auth, sample_event):
 
 
 def test_toggle_task_completion_as_organizer(client, auth, sample_event):
+    """Test toggling task completion status"""
     auth.login()
 
     task = Task.query.filter_by(event_id=sample_event.id).first()

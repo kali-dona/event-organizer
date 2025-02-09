@@ -1,10 +1,12 @@
+""""Tests for the user module"""
+import io
 from flask import url_for
 from app.models import User, FriendRequest, Notification
-import io
 from app import db
 
 
 def test_user_profile(client, auth):
+    """Test user profile page"""
     auth.login()
     response = client.get(url_for('user.user_profile', user_id=1))
     assert response.status_code == 200
@@ -15,6 +17,7 @@ def test_user_profile(client, auth):
 
 
 def test_delete_account(client, auth):
+    """Test deleting an account"""
     auth.login()
     response = client.post(url_for('user.delete_account'))
     assert response.status_code == 302
@@ -22,6 +25,7 @@ def test_delete_account(client, auth):
 
 
 def test_edit_profile(client, auth):
+    """Test editing a user's profile"""
     auth.login()
     data = {
         'first_name': 'NewName',
@@ -41,6 +45,7 @@ def test_edit_profile(client, auth):
 
 
 def test_send_friend_request(client, auth, init_database):
+    """Test sending a friend request"""
     auth.login()
     user1 = User.query.filter_by(username='testuser1').first()
     user2 = User.query.filter_by(username='testuser2').first()
@@ -63,6 +68,7 @@ def test_send_friend_request(client, auth, init_database):
 
 
 def test_respond_friend_request_accept(client, auth, init_database):
+    """Test accepting a friend request"""
     auth.login()
     user1 = User.query.filter_by(username='testuser1').first()
     user2 = User.query.filter_by(username='testuser2').first()

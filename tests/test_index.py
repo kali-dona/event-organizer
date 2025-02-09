@@ -1,38 +1,28 @@
-from flask import url_for, template_rendered
-from app.models import User, Event, Notification
+"""Test routes in the index module."""
 from datetime import datetime
-from contextlib import contextmanager
+from flask import url_for
+from app.models import User, Event, Notification
 
-
-@contextmanager
-def captured_templates(app):
-    recorded = []
-
-    def record(sender, template, context, **extra):
-        recorded.append((template, context))
-
-    template_rendered.connect(record, app)
-    try:
-        yield recorded
-    finally:
-        template_rendered.disconnect(record, app)
 
 
 def test_index_route_unauthenticated(client):
+    """Test the index route when the user is not authenticated."""
     response = client.get(url_for('index.index_route'))
     assert response.status_code == 200
     assert b"Organize It!" in response.data
 
 
 def test_index_route_authenticated(client, auth):
+    """Test the index route when the user is authenticated."""
     auth.login()
     response = client.get(url_for('index.index_route'))
     assert response.status_code == 302
     assert response.location == '/home'
 
 
-def test_home_route_authenticated_no_events_no_notifications(
-        client, auth, db_session):
+def test_home_route_authenticated_no_events_no_notifications(client, auth):
+    """Test the home route when the user is authenticated and
+    has no events or notifications."""
     auth.login()
     response = client.get(url_for('index.home'))
     assert response.status_code == 200
@@ -44,6 +34,7 @@ def test_home_route_authenticated_no_events_no_notifications(
 
 def test_home_route_authenticated_with_events_and_notifications(
         client, auth, db_session):
+    """Test the home route when the user is authenticated"""
     auth.login()
 
     user = db_session.query(User).filter_by(email="test1@example.com").first()

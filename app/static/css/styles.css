@@ -7,7 +7,7 @@
     align-items: center;
     justify-content: center;
     height: 94.3vh;
-    background: linear-gradient(135deg, #A8D5E3, #FF78AC); /* Красив градиент */
+    background: linear-gradient(135deg, #A8D5E3, #FF78AC);
     text-align: center;
     color: white;
     padding: 20px;
@@ -252,7 +252,7 @@
     align-items: center;
     justify-content: center;
     height: 9vh;
-    background: linear-gradient(135deg, #A8D5E3, #FF78AC); /* Красив градиент */
+    background: linear-gradient(135deg, #A8D5E3, #FF78AC);
     text-align: center;
     color: white;
     padding: 20px;
@@ -268,7 +268,7 @@
 /*Navigation*/
 .button-container-nav {
     position: fixed;
-    top: 12vh; /* Точно под заглавието */
+    top: 12vh;
     left: 0;
     width: 100%;
     padding: 10px 0;
@@ -329,7 +329,6 @@
 
 
 /*Profile*/
-/* Основни стилове за профилната секция */
 .profile-section {
     margin-top: 25vh;
     width: 75%;
@@ -369,7 +368,6 @@
     margin-bottom: 10px;
 }
 
-/* Основен контейнер за приятелите */
 .friends-container {
     display: flex;
     justify-content: space-between;
@@ -380,7 +378,6 @@
     padding-bottom: 20px;
 }
 
-/* Колона за приятели и заявки */
 .friends-list-container {
     flex: 2;
     display: flex;
@@ -389,7 +386,6 @@
     text-align: left;
 }
 
-/* Колона за търсене на приятели */
 .search-friends {
     flex: 1;
     background: #ecf0f1;
@@ -398,7 +394,6 @@
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Стилове за списък с приятели */
 .friends-list {
     list-style: none;
     padding: 0;
@@ -444,7 +439,6 @@
     text-decoration: underline;
 }
 
-/* Търсене на приятели */
 .search-friends form {
     display: flex;
     flex-direction: column;
@@ -460,7 +454,6 @@
     width: 100%;
 }
 
-/* Редактиране и изтриване на профил */
 .profile-actions {
     display: flex;
     justify-content: center;
@@ -650,7 +643,7 @@
     border-radius: 5px;
 }
 
-/* Стилизиране на чекбокса */
+
 .checkmark {
     width: 1.3em;
     height: 1.3em;
@@ -661,7 +654,6 @@
     transition: all 0.2s ease-in-out;
 }
 
-/* Стил за чекбокс, когато е маркиран */
 .container-checkbox input:checked ~ .checkmark {
     box-shadow: 1px 1px 0px rgb(183, 183, 183);
     transition: all 0.2s;
@@ -673,7 +665,7 @@
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
-/* Индикатор (чавка) */
+
 .checkmark:after {
     content: "";
     position: absolute;
@@ -681,13 +673,12 @@
     transition: all 0.2s;
 }
 
-/* Показване на чавката при маркиране */
 .container-checkbox input:checked ~ .checkmark:after {
     opacity: 1;
     transition: all 0.2s;
 }
 
-/* Дизайн на чавката */
+
 .container-checkbox .checkmark:after {
     left: 0.45em;
     top: 0.25em;
@@ -701,7 +692,7 @@
 
 /*Event detail page*/
 body.event-page main {
-    display: block !important; /* Спира flex само за event страницата */
+    display: block !important;
     width: 100%;
     margin-top: 180px;
     margin-left: 180px;
@@ -826,16 +817,15 @@ body.event-page main {
 }
 
 /*Edit event*/
-/* Основни стилове за страницата за редакция */
 .edit-event-page {
-    display: block; /* Спира flex само за тази страница */
+    display: block;
     width: 60%;
-    margin-top: 180px; /* Може да се коригира според нуждите */
+    margin-top: 180px;
     margin-left: auto;
     margin-right: auto;
     align-items: center;
     font-size: 1rem;
-    max-width: 100%; /* Малко по-тясна форма за по-добър изглед */
+    max-width: 100%;
     background: white;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -844,7 +834,6 @@ body.event-page main {
     gap: 20px;
 }
 
-/* Стилове за формата */
 .edit-event-page form {
     display: flex;
     flex-direction: column;
@@ -870,7 +859,7 @@ body.event-page main {
     color: #2C3E50;
 }
 
-/* Контейнер за всяко поле */
+
 .edit-event-page .form-group {
     display: flex;
     flex-direction: column;
@@ -878,7 +867,6 @@ body.event-page main {
 
 }
 
-/* Текстови полета и селекти */
 .edit-event-page input[type="text"],
 .edit-event-page input[type="date"],
 .edit-event-page input[type="time"],
@@ -892,7 +880,7 @@ body.event-page main {
     transition: border-color 0.3s ease-in-out;
 }
 
-/* Фокус ефект при клик */
+
 .edit-event-page input:focus,
 .edit-event-page textarea:focus {
     border-color: #8AC6D1;
@@ -901,7 +889,7 @@ body.event-page main {
 
 }
 
-/* Бутон за запазване */
+
 .edit-event-page button {
     padding: 10px 15px;
     font-size: 1rem;
@@ -913,13 +901,12 @@ body.event-page main {
     transition: background 0.3s ease-in-out;
 }
 
-/* Ефект при задържане */
+
 .edit-event-page button:hover {
     background: linear-gradient(45deg, #FF2E79, #4AB0C3);
 }
 
 
-/*FLASH MESSAGESS*/
 .flash-messages, .alert, .alert-danger, .alert-success {
     position: fixed;
     top: 650px;
@@ -933,7 +920,7 @@ body.event-page main {
     padding: 10px 20px;
     border-radius: 5px;
     margin-bottom: 10px;
-    background-color: #945a6f; /* Текстът ще бъде бял */
+    background-color: #945a6f;
     font-weight: bold;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     opacity: 1;
@@ -942,7 +929,6 @@ body.event-page main {
 
 }
 
-/* Увери се, че имаш контрастен фон */
 .alert-success {
     background-color: #76aeb8;
     padding: 10px 20px;
@@ -955,7 +941,7 @@ body.event-page main {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     opacity: 1;
     transition: opacity 1.5s ease-in-out;
-    color: white; /* За да е сигурно, че текстът ще е бял върху фона */
+    color: white;
 }
 
 .alert-danger {
@@ -969,21 +955,19 @@ body.event-page main {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     opacity: 1;
     transition: opacity 1.5s ease-in-out;
-    color: white; /* За да е сигурно, че текстът ще е бял върху фона */
+    color: white;
 }
 
-/* Допълнителни стилове, ако е необходимо */
 .flash-messages .alert {
     font-size: 16px;
     line-height: 1.5;
 }
 
 
-/* Подобрени input и textarea */
 .event-page input[type="text"],
 .event-page input[type="email"],
 .event-page textarea {
-    width: 500px; /* Фиксирана ширина */
+    width: 500px;
     height: 40px;
     padding: 10px;
     margin-top: 5px;
@@ -1007,8 +991,7 @@ body.event-page main {
     resize: none;
 }
 
-/* Стил за новия падащ списък */
-/* Стилизиране на падащото меню */
+
 .custom-select {
     width: 40%;
     padding: 5px;
@@ -1024,14 +1007,14 @@ body.event-page main {
     height: 30px;
 }
 
-/* Фокус ефект */
+
 .custom-select:focus {
     border-color: #34b9d1;
     box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
     outline: none;
 }
 
-/*Invitation page*/
+
 .invitation-container {
     max-width: 600px;
     margin: 250px 0px 0px 0px;
@@ -1135,8 +1118,8 @@ body.event-page main {
 main {
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Вместо center */
-    min-height: 100vh; /* Гарантира, че ще има достатъчно място */
+    align-items: flex-start;
+    min-height: 100vh;
 }
 
 
@@ -1151,14 +1134,14 @@ body {
 
 .container {
     display: flex;
-    flex-direction: column; /* Подреждане на секциите вертикално */
+    flex-direction: column;
     gap: 20px;
     width: 75%;
-    top: calc(9vh); /* Под заглавието и навигацията */
+    top: calc(9vh);
     left: 50%;
     transform: translateX(-50%);
-    overflow: hidden; /* Скриване на общия скрол */
-    margin: 0 auto; /* Центриране */
+    overflow: hidden;
+    margin: 0 auto;
     padding-top: calc(9vh + 80px);
     max-width: 1200px;
     position: absolute;
@@ -1170,9 +1153,9 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    overflow-y: auto; /* Отделен скрол за всяка секция */
-    min-height: 75vh; /* Запълване на наличното пространство */
-    max-height: 80vh; /* Предотвратяване на прекалено разширяване */
+    overflow-y: auto;
+    min-height: 75vh;
+    max-height: 80vh;
     margin-top: -10px;
     padding-top: 0px;
 
@@ -1182,11 +1165,11 @@ body {
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    flex-wrap: nowrap; /* Предотвратяване на преместване на редове */
-    height: 80vh; /* Фиксирана височина, за да не се разширява */
+    flex-wrap: nowrap;
+    height: 80vh;
 }
 
-/* Секция "Моите събития" - на цял ред под другите */
+
 .user-events {
     background: #e3f2fd;
     padding: 20px;
@@ -1209,7 +1192,6 @@ h2, h3 {
 }
 
 
-/* Стилове за списъците */
 ul {
     list-style: none;
     padding: 0;
@@ -1227,7 +1209,7 @@ li:hover {
     background: #dfe6e9;
 }
 
-/* Линкове */
+
 a {
     text-decoration: none;
     color: #2980b9;
@@ -1237,19 +1219,18 @@ a:hover {
     color: white;
 }
 
-/* Секция за известия - свита по подразбиране */
 .notifications-wrapper {
     position: fixed;
     right: 10px;
     top: 57%;
     transform: translateY(-50%);
-    width: 60px; /* Малка ширина по подразбиране */
-    height: 50px; /* Малка височина по подразбиране */
+    width: 60px;
+    height: 50px;
     background: white;
     border-radius: 10px;
     padding: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    transition: width 0.3s ease-in-out, height 0.3s ease-in-out; /* Плавно разширяване */
+    transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
     overflow: hidden;
     cursor: pointer;
     z-index: 999;
@@ -1257,9 +1238,8 @@ a:hover {
 
 }
 
-/* Заглавие "Известия", винаги видимо */
 .notifications-wrapper::before {
-    content: "🔔"; /* Икона за известия */
+    content: "🔔";
     display: block;
     font-size: 1.5rem;
     font-weight: bold;
@@ -1267,7 +1247,6 @@ a:hover {
     color: #2C3E50;
 }
 
-/* Съдържанието на известията - скрито по подразбиране */
 .notifications-content {
     opacity: 0;
     max-height: 0;
@@ -1275,18 +1254,18 @@ a:hover {
     overflow-y: auto;
 }
 
-/* При ховър известията се разгъват */
+
 .notifications-wrapper:hover {
-    width: 300px; /* Разгъва се на по-широко */
-    height: 540px; /* Автоматично разширяване */
+    width: 300px;
+    height: 540px;
     padding: 15px;
     z-index: 999;
 }
 
-/* Съдържанието става видимо при ховър */
+
 .notifications-wrapper:hover .notifications-content {
     opacity: 1;
-    max-height: 500px; /* Позволява напълно разгръщане */
+    max-height: 500px;
 }
 
 .list-group-item {
@@ -1311,7 +1290,6 @@ a:hover {
     z-index: 999;
 }
 
-/* За да не пречи на ръчното разгъване */
 .notifications-wrapper.new-notification .notifications-content {
     opacity: 1;
     max-height: 500px;

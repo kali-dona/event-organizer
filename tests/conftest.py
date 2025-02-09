@@ -1,14 +1,18 @@
+"""This module contains fixtures for testing the application."""
 import uuid
+from datetime import datetime
+from werkzeug.security import generate_password_hash
 import pytest
 from app import create_app, db
 from app.models import User, Event
-from werkzeug.security import generate_password_hash
-from datetime import datetime
+
+
 from config import TestingConfig
 
 
 @pytest.fixture(scope="module")
 def app():
+    """This fixture sets up the Flask application with the `TestingConfig` configuration"""
     app = create_app(TestingConfig)
     with app.app_context():
         db.create_all()
@@ -19,11 +23,13 @@ def app():
 
 @pytest.fixture
 def client(app):
+    """Fixture to create a test client for making requests to the application."""
     return app.test_client()
 
 
 @pytest.fixture
 def new_user(db_session):
+    """Fixture to create a new user."""
     unique_username = f"testuser_{uuid.uuid4().hex[:8]}"
     unique_email = f"{unique_username}@example.com"
 
@@ -41,6 +47,7 @@ def new_user(db_session):
 
 @pytest.fixture
 def db_session(app):
+    """Fixture to create a database session."""
     with app.app_context():
         yield db.session
         db.session.rollback()
@@ -48,6 +55,7 @@ def db_session(app):
 
 @pytest.fixture(scope="module")
 def init_database(app):
+    """Fixture to initialize the database with sample data."""
     with app.app_context():
         db.create_all()
 
@@ -84,8 +92,11 @@ def init_database(app):
 
 @pytest.fixture
 def auth(client, db_session):
+    """Fixture to handle user authentication in tests."""
     class AuthActions:
+        """Class to provide authentication functionality."""
         def login(self, email="test1@example.com", password="password1"):
+            """Log in a user for testing purposes."""
             user = User.query.filter_by(email=email).first()
             if not user:
                 user = User(
@@ -105,6 +116,7 @@ def auth(client, db_session):
                 sess.permanent = True
 
         def logout(self):
+            """Log out a user."""
             with client.session_transaction() as sess:
                 sess.pop('_user_id', None)
                 sess.permanent = False
@@ -114,6 +126,7 @@ def auth(client, db_session):
 
 @pytest.fixture
 def sample_event(db_session, client, auth):
+    """Fixture to create a sample event for testing purposes."""
     auth.login()
     user = User.query.filter_by(email="test1@example.com").first()
     event = Event(
@@ -129,6 +142,7 @@ def sample_event(db_session, client, auth):
 
 @pytest.fixture
 def another_user(db_session):
+    """Fixture to create a new user."""
     unique_username = f"another_user_{uuid.uuid4()}"
     unique_email = f"{unique_username}@example.com"
 

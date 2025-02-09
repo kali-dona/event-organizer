@@ -1,9 +1,11 @@
+"""Test the auth module."""
 from flask import url_for
-from app.models import User
 from flask_wtf.csrf import generate_csrf
+from app.models import User
 
 
 def test_register(client):
+    """Register a new user."""
     with client:
         client.get(url_for("auth.register"))
         csrf_token = generate_csrf()
@@ -23,6 +25,7 @@ def test_register(client):
 
 
 def test_register_existing_username(client, new_user):
+    """Register a user with an existing username."""
     with client:
         client.get(url_for("auth.register"))
         csrf_token = generate_csrf()
@@ -42,6 +45,7 @@ def test_register_existing_username(client, new_user):
 
 
 def test_register_existing_email(client, new_user):
+    """Register a user with an existing email."""
     with client:
         client.get(url_for("auth.register"))
         csrf_token = generate_csrf()
@@ -61,6 +65,7 @@ def test_register_existing_email(client, new_user):
 
 
 def test_login(client, new_user):
+    """Login a registered user."""
     response = client.post(url_for("auth.login"), data={
         "username": new_user.username,
         "password": "password123"
@@ -72,6 +77,7 @@ def test_login(client, new_user):
 
 
 def test_login_invalid_credentials(client):
+    """Login with invalid credentials."""
     response = client.post(url_for("auth.login"), data={
         "username": "wronguser",
         "password": "wrongpassword"
@@ -81,11 +87,11 @@ def test_login_invalid_credentials(client):
 
 
 def test_logout(client, new_user):
+    """Logout a user."""
     response = client.post(url_for("auth.login"), data={
         "username": new_user.username,
         "password": "password123"
     }, follow_redirects=True)
-
 
     assert response.status_code == 200
     response = client.get(url_for("auth.logout"), follow_redirects=True)

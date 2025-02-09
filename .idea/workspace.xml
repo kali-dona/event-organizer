@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18c99d3e-b605-4e2a-ac26-ddfb44442c10" name="Changes" comment="Update Commit" />
+    <list default="true" id="18c99d3e-b605-4e2a-ac26-ddfb44442c10" name="Changes" comment="Update Commit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/conftest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_auth.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_event.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_event.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_index.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_index.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_user.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_user.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -279,7 +288,7 @@
       <option name="presentableId" value="Default" />
       <updated>1738847017313</updated>
       <workItem from="1738847018407" duration="43812000" />
-      <workItem from="1738946934499" duration="82539000" />
+      <workItem from="1738946934499" duration="84627000" />
     </task>
     <task id="LOCAL-00001" summary="Update Commit">
       <option name="closed" value="true" />
