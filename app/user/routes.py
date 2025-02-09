@@ -177,8 +177,7 @@ def send_friend_request(friend_id):
         link = url_for('user.user_profile', user_id=friend.id, _external=True)
 
         notification = Notification(
-            message=f'{
-                current_user.username} sent you a friend request! '
+            message=f'{current_user.username} sent you a friend request! '
                     f'<a href="{link}">Accept/Decline</a>',
             user_id=friend.id)
         db.session.add(notification)
@@ -214,16 +213,14 @@ def respond_friend_request(request_id, action):
             db.session.delete(friend_request)
 
             notification = Notification(
-                message=f'{
-                    current_user.username} accepted your friend request!',
+                message=f'{current_user.username} accepted your friend request!',
                 user_id=friend_request.sender.id)
             db.session.add(notification)
 
         elif action == 'decline':
             db.session.delete(friend_request)
             notification = Notification(
-                message=f'{
-                    current_user.username} declined your friend request.',
+                message=f'{current_user.username} declined your friend request.',
                 user_id=friend_request.sender.id)
             db.session.add(notification)
             flash('Friend request declined.', 'info')

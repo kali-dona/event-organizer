@@ -74,10 +74,8 @@ class FriendRequest(db.Model):
         backref='received_requests')
 
     def __repr__(self):
-        return f'<FriendRequest {
-            self.sender.username} -> {
-            self.receiver.username}, status={
-            self.status}>'
+        return f'<FriendRequest {self.sender.username} -> {self.receiver.username}, status={self.status}>'
+
 
 
 class Attendance(db.Model):
@@ -96,10 +94,7 @@ class Attendance(db.Model):
     event = db.relationship('Event', back_populates='attendances')
 
     def __repr__(self):
-        return f'<Attendance User {
-            self.user_id} for Event {
-            self.event_id}, status={
-            self.status}>'
+        return f'<Attendance User {self.user_id} for Event {self.event_id}, status={self.status}>'
 
 
 class Task(db.Model):
@@ -124,10 +119,7 @@ class Task(db.Model):
         foreign_keys=[user_id])
 
     def __repr__(self):
-        return f'<Task {
-            self.title}, Event {
-            self.event_id}, Completed {
-            self.completed}>'
+        return f'<Task {self.title}, Event {self.event_id}, Completed {self.completed}>'
 
 
 class Event(db.Model):
@@ -158,10 +150,7 @@ class Event(db.Model):
         cascade='all, delete-orphan')
 
     def __repr__(self):
-        return f'<Event {
-            self.title}, Date {
-            self.date}, Organizer {
-            self.organizer_id}>'
+        return f'<Event {self.title}, Date {self.date}, Organizer {self.organizer_id}>'
 
     def get_participants(self) -> List[User]:
         """Retrieves the list of participants attending the event."""
@@ -197,11 +186,7 @@ class Comment(db.Model):
     user = db.relationship('User', backref=db.backref('comments', lazy=True))
 
     def __repr__(self):
-        return f'<Comment by User {
-            self.user_id} on Event {
-            self.event_id}, {
-            len(
-                self.content)} characters>'
+        return f'<Comment by User {self.user_id} on Event {self.event_id}, {len(self.content)} characters>'
 
 
 class Notification(db.Model):
@@ -224,11 +209,7 @@ class Notification(db.Model):
     user = db.relationship('User', backref='notifications')
 
     def __repr__(self):
-        return f'<Notification {
-            self.message}, User {
-            self.user_id}, Event {
-            self.event_id}>'
-
+        return f'<Notification {self.message}, User {self.user_id}, Event {self.event_id}>'
 
 class Invitation(db.Model):
     """Represents an invitation sent to user."""
@@ -254,7 +235,4 @@ class Invitation(db.Model):
     recipient = db.relationship('User', foreign_keys=[recipient_id])
 
     def __repr__(self):
-        return f'<Invitation Event {
-            self.event_id}, Status {
-            self.status}, Recipient {
-            self.recipient_email or self.recipient_id}>'
+        return f"<Invitation Event {self.event_id}, Status {self.status}, Recipient {self.recipient_email or self.recipient_id}>"

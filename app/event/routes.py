@@ -114,15 +114,10 @@ def edit_event(event_id):
 
             db.session.commit()
             flash('Event was successfully updated!', 'success')
-            send_update_email(cur_event, f'Hello!\n\n"{
-            cur_event.title}" has been recently updated. You can see the changes here: {
-            url_for(
-                'event.event_detail',
-                event_id=cur_event.id,
-                _external=True)}')
-            create_event_update_notification(
-                cur_event, f'Event "{
-                cur_event.title}" was recently updated.')
+            send_update_email(cur_event, f'''Hello!
+                              "{cur_event.title}" has been recently updated. You can see the changes here:
+                               {url_for('event.event_detail',event_id=cur_event.id,_external=True)}''')
+            create_event_update_notification(cur_event, f'Event "{cur_event.title}" was recently updated.')
 
             return redirect(url_for('event.event_detail', event_id=cur_event.id))
 
@@ -150,12 +145,12 @@ def delete_event(event_id):
         return redirect(url_for('user.user_profile', user_id=current_user.id))
 
     try:
-        send_update_email(cur_event, f'Event "{cur_event.title}" has '
-                                     f'been deleted. You can see your other events here: {
+        send_update_email(cur_event, f'''Event "{cur_event.title}" has been deleted.
+                          You can see your other events here: {
                                                 url_for(
                                                 'index.home',
                                                 event_id=cur_event.id,
-                                                _external=True)}')
+                                                _external=True)}''')
         Invitation.query.filter_by(event_id=event_id).delete()
         Attendance.query.filter_by(event_id=event_id).delete()
         Notification.query.filter_by(event_id=event_id).delete()
@@ -264,8 +259,7 @@ def invitation_page(invitation_id):
                 db.session.commit()
 
                 flash(
-                    f'You have accepted the invitation to "{
-                    cur_event.title}".', 'success')
+                    f'You have accepted the invitation to "{cur_event.title}".', 'success')
                 return redirect(
                     url_for(
                         'event.event_detail',
@@ -275,9 +269,7 @@ def invitation_page(invitation_id):
                 db.session.commit()
                 create_invitation_status_notification(
                     cur_event.id, cur_event.organizer_id, 'declined', current_user.username)
-                flash(
-                    f'You have declined the invitation to "{
-                    cur_event.title}".', 'danger')
+                flash(f'You have declined the invitation to "{cur_event.title}".', 'danger')
                 return redirect(url_for('index.home'))
     except Exception as e:
         db.session.rollback()
@@ -481,17 +473,16 @@ def send_invitations(
                 db.session.add(invitation)
                 db.session.commit()
 
-                msg = Message(
-                    subject=f'Invitation for {
-                    cur_event.title}',
+                msg = Message(subject=f'Invitation for {cur_event.title}',
                     recipients=[
                         email if not user else user.email],
-                    body=f'Hello,\n\nYou were invited to "{
-                    cur_event.title}".\n\n' f'You can accept or decline here: {
+                    body=f'''Hello,
+                    You were invited to "{cur_event.title}". 
+                    You can accept or decline here: {
                     url_for(
                         'event.invitation_page',
                         invitation_id=invitation.id,
-                        _external=True)}')
+                        _external=True)}''')
                 mail.send(msg)
                 invitations_sent += 1
 
@@ -504,23 +495,22 @@ def send_invitations(
                     continue
 
                 invitation = Invitation(
-                    event_id=cur_event.id, recipient_id=friend.id, recipient_email=user.email)
+                    event_id=cur_event.id, recipient_id=friend.id, recipient_email=friend.email)
                 db.session.add(invitation)
                 db.session.commit()
 
                 create_invitation_notification(invitation)
-                msg = Message(
-                    subject=f'Invitation for {
-                    cur_event.title}',
+                msg = Message(subject=f'Invitation for {cur_event.title}',
                     recipients=[
                         friend.email],
-                    body=f'Hello {
-                    friend.username},\n\nYou were invited to "{
-                    cur_event.title}".\n\n' f'You can accept or decline here: {
+                    body=f'''Hello {
+                    friend.username},
+                    You were invited to "{cur_event.title}".
+                    You can accept or decline here: {
                     url_for(
                         'event.invitation_page',
                         invitation_id=invitation.id,
-                        _external=True)}')
+                        _external=True)}''')
                 mail.send(msg)
                 invitations_sent += 1
 
@@ -544,9 +534,7 @@ def send_update_email(cur_event, message) -> None:
         return
     for participant in participants:
         if participant.email:
-            msg = Message(
-                subject=f'{
-                cur_event.title} has been updated.',
+            msg = Message(subject=f'{cur_event.title} has been updated.',
                 recipients=[
                     participant.email],
                 body=message)
@@ -596,8 +584,7 @@ def create_invitation_notification(invitation) -> None:
             invitation_id=invitation.id,
             _external=True)
         new_notification = Notification(
-            message=f'<a href="{link}">You have been invited to {
-            cur_event.title}</a>',
+            message=f'<a href="{link}">You have been invited to {cur_event.title}</a>',
             user_id=invitation.recipient_id,
             event_id=cur_event.id)
 
@@ -618,8 +605,7 @@ def create_invitation_status_notification(
         cur_event = Event.query.get(event_id)
         if not cur_event:
             return
-        message = f'{guest_id} has {status} your invitation for event "{
-        Event.query.get(event_id).title}"'
+        message = f'{guest_id} has {status} your invitation for event "{Event.query.get(event_id).title}"'
         new_notification = Notification(
             message=message,
             user_id=organizer_id,
